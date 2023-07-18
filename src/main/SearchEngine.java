@@ -7,7 +7,7 @@ public class SearchEngine {
 
 	public static void main(String[] args) throws IOException {
 		// web crawler logic will go here
-		String crawlFrom = "https://utoronto.ca";
+		String crawlFrom = "https://en.wikipedia.org";
 		WebCrawler.websiteToCrawl(5, crawlFrom, new ArrayList<String>());
 		final File htmlpages = new File("/Users/joelmathew/eclipse-workspace/WebSearchEngine/src/HTMLFiles");
 		for (final File files : htmlpages.listFiles()) 
@@ -58,6 +58,7 @@ public class SearchEngine {
 		// reading the whole folder for converted html to txt files
 		File folder = new File("/Users/joelmathew/eclipse-workspace/WebSearchEngine/src/HTMLToTextFiles");
 		File[] htmlToTxtFiles = folder.listFiles();
+		Hashtable<String, Integer> numberOfOccurences = new Hashtable<String, Integer>();
 		BoyerMoore booyerMoore = new BoyerMoore(searchedKey.toLowerCase());
 		
 		for (File file : htmlToTxtFiles) {
@@ -81,6 +82,7 @@ public class SearchEngine {
                   }
                   
                   if(count>0) {
+                	numberOfOccurences.put(file.getName(), count);
                   	System.out.println("\nThe number of occurrences of "+searchedKey+" in file "+file.getName()+" are "+count);
                   }
               }catch(IOException e) {

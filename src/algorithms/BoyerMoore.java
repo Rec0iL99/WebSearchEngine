@@ -1,5 +1,12 @@
 package algorithms;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.Scanner;
+
 /***************************************************************
  *  Compilation:  javac BoyerMoore.java
  *  Execution:    java BoyerMoore pattern text
@@ -40,7 +47,7 @@ public class BoyerMoore {
 
     // pattern provided as a string
     public BoyerMoore(String pat) {
-        this.R = 256;
+        this.R = 65536;
         this.pat = pat;
 
         // position of rightmost occurrence of c in the pattern
@@ -102,36 +109,4 @@ public class BoyerMoore {
         }
         return N;                       // not found
     }
-
-//    // test client
-//    public static void main(String[] args) {
-//        //String pat = args[0];
-//        //String txt = args[1];
-// 	   
-//        // There are two implmentations of search
-// 	   // one is with String and the other is an array of chars
-// 	   
-//        String pat = "abracadabra";
-//        String txt = "abacadabrabracabracadabrabrabrac-fdslfdslfdslfdslfdslfdslfdslfdslfdslfdslfdslfdslfdslfdslfdslfdslfdslfdslfdslfdslfdskjgkjgkjgkjgkjgkjgkjgkjgkjgkjgkjgkjgkjgkjgkjgkjgkjgkjgkjgkjgkjgkjgkjgkjgkjgkjgkjgkjgkjgkjgkjgkjgkjgkjgkjgkjgkjgkjgkjgkjgkjgkjgad";
-//        char[] pattern = pat.toCharArray();
-//        char[] text    = txt.toCharArray();
-//
-//        BoyerMoore boyermoore1 = new BoyerMoore(pat);
-//        BoyerMoore boyermoore2 = new BoyerMoore(pattern, 256);
-//        int offset1 = boyermoore1.search(txt);
-//        int offset2 = boyermoore2.search(text);
-//
-//        // print results
-//        StdOut.println("text:    " + txt);
-//
-//        StdOut.print("pattern: ");
-//        for (int i = 0; i < offset1; i++)
-//            StdOut.print(" ");
-//        StdOut.println(pat + " at pos " + offset1);
-//
-//        StdOut.print("pattern: ");
-//        for (int i = 0; i < offset2; i++)
-//            StdOut.print(" ");
-//        StdOut.println(pat + " at pos " + offset2);
-//      }
 }
