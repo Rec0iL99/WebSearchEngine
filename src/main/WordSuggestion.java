@@ -36,15 +36,27 @@ public class WordSuggestion {
             //String key = In.readString();
             st.put(array[i], i);
         }
-        System.out.println("\nSimilar searches:");
+        System.out.println("-------------------------------------------------------------------------------------------------------------------------------------");
         int count = 0;
+        ArrayList<String> words = new ArrayList<String>();
         for (String s : st.keysWithPrefix(searchedKey)) {
-        	System.out.println(s);
+        	words.add(s);
+//        	System.out.println(s);
 //            StdOut.println(s);
             count++;
             if (count >= 5) {
                 break;
             }
         }
+        
+        if (words.size() == 0) {
+        	System.out.print("We could not find similar search terms");
+        } else {
+        	System.out.println("\nHere are some similar search terms you could search for in the future: ");
+        	for (String word : words) {
+        		System.out.println(word);
+        	}
+        }
+        System.out.println("\n");
 	}
 }

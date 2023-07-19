@@ -47,8 +47,8 @@ public class Sequences {
 	
 	public static void main(String[] args) {
 		// two arbitrary strings
-		String s1 = "intranet torrain";
-		String s2 = "internet domain";
+		String s1 = "information";
+		String s2 = "inframationzz";
 		int d = editDistance(s1, s2);
 		long totaltime=0;
 		System.out.println("Dist between '" + s1 + "' and '" + s2 + "' = " + d);

@@ -21,7 +21,7 @@ public class WebCrawler {
 			Document doc = conToUrl.get();
 			
 			if(conToUrl.response().statusCode() == 200) {
-				System.out.println("Link" + url);
+				System.out.println("Link: " + url);
 				System.out.println(doc.title());
 				String title = doc.title();
 				URL urlToWrite = new URL(url);
@@ -48,7 +48,7 @@ public class WebCrawler {
 			Document doc = requestAccess(url, visited);
 			if (doc!=null) {
 				for(Element link : doc.select("a[href]")) {
-					String nextLink = link.absUrl("href");				
+					String nextLink = link.absUrl("href");			
 					if(visited.contains(nextLink)== false) {
 						websiteToCrawl(level++, nextLink, visited);
 					}

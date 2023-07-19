@@ -34,7 +34,7 @@ public class SpellCheck {
             if (!dictionary.contains(word)) {
                 for (i=0; i<dictionary.size(); i++) {
                 	distance = Sequences.editDistance(word, dictionary.get(i));
-                    if(distance == 1) {
+                    if(distance > 0 && distance <= 2) {
                     	wordSuggestions.add(dictionary.get(i));
                     }
                 }
