@@ -24,9 +24,10 @@ public class WebCrawler {
 				System.out.println("Link: " + url);
 				System.out.println(doc.title());
 				String title = doc.title();
+				String modifiedTitle = title.replaceAll("[:*?\"<>|]", " ");
 				URL urlToWrite = new URL(url);
 				BufferedReader reader = new BufferedReader(new InputStreamReader(urlToWrite.openStream()));
-				BufferedWriter writer = new BufferedWriter(new FileWriter("/Users/joelmathew/eclipse-workspace/WebSearchEngine/src/HTMLFiles/"+title+".html"));
+				BufferedWriter writer = new BufferedWriter(new FileWriter("/Users/joelmathew/eclipse-workspace/WebSearchEngine/src/HTMLFiles/"+modifiedTitle+".html"));
 				String line;
 				while ((line = reader.readLine()) != null){
 					writer.write(line);
